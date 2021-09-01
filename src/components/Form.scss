@@ -1,0 +1,258 @@
+@import "../variables";
+
+@font-face {
+  font-family: "IRANYekan";
+  src: url("../assets/fonts/BYekan+.ttf");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -90px;
+}
+
+.logo {
+  width: 125.4px;
+  height: 132px;
+  margin-top: 116px;
+  margin-bottom: 32px;
+}
+
+.form-container {
+  width: 432px;
+  height: 480px;
+  background: $white-color;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+}
+
+.form-header {
+  position: absolute;
+  width: 175px;
+  height: 25px;
+  text-align: right;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  color: $dark-color;
+  font-family: IRANYekan;
+  margin: 0;
+  right: 16px;
+  top: 17px;
+}
+
+.text-field-1 {
+  position: absolute;
+  height: 72px;
+  left: 16px;
+  right: 16px;
+  top: 64px;
+
+  .label {
+    position: absolute;
+    left: 81.89%;
+    right: 0;
+    top: 0%;
+    bottom: 77.78%;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 16px;
+    align-items: center;
+    text-align: right;
+    color: $text-color;
+    opacity: 0.68;
+  }
+
+  .input {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 33.33%;
+    bottom: 0%;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    padding-right: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.text-field-2 {
+  position: absolute;
+  height: 72px;
+  left: 16px;
+  right: 16px;
+  top: 152px;
+
+  .label {
+    position: absolute;
+    left: 84.92%;
+    right: 0%;
+    top: 0%;
+    bottom: 77.78%;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 16px;
+    align-items: center;
+    text-align: right;
+    color: $text-color;
+    opacity: 0.68;
+  }
+
+  .input {
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 33.33%;
+    bottom: 0%;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    padding-right: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.text-field-3 {
+  position: absolute;
+  height: 72px;
+  left: 16px;
+  right: 16px;
+  top: 240px;
+
+  .label {
+    position: absolute;
+    left: 84.92%;
+    right: 0%;
+    top: 0%;
+    bottom: 77.78%;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 16px;
+    align-items: center;
+    text-align: right;
+    color: $text-color;
+    opacity: 0.68;
+  }
+
+  .input {
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 33.33%;
+    bottom: 0%;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    padding-right: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.text-field-4 {
+  position: absolute;
+  height: 72px;
+  left: 16px;
+  right: 16px;
+  top: 328px;
+
+  .label {
+    position: absolute;
+    left: 84.92%;
+    right: 0%;
+    top: 0%;
+    bottom: 77.78%;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 16px;
+    align-items: center;
+    text-align: right;
+    color: $text-color;
+    opacity: 0.68;
+  }
+
+  .input {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 33.33%;
+    bottom: 0%;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    padding-right: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.submit-btn {
+  position: absolute;
+  width: 93%;
+  height: 48px;
+  left: 16px;
+  right: 0px;
+  top: 416px;
+  background: $asroon-color;
+  border: none;
+  border-radius: 4px;
+  font-family: IRANYekan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  color: $white-color;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
