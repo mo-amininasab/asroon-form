@@ -48,6 +48,10 @@
   margin-right: 8px;
   cursor: pointer;
 
+  &:hover {
+    background: #ce2f26;
+  }
+
   .icon-plus {
     margin-left: 8px;
   }
@@ -179,15 +183,19 @@
 
 .td-icon {
   width: 56px;
-  padding-right: 8px;
-  cursor: pointer;
+  img {
+    cursor: pointer;
+    padding: 8px;
+  }
 }
 
 .td-icon-2 {
   //   border-radius: 0px 0px 0px 8px;
   width: 56px;
-  padding-right: 8px;
-  cursor: pointer;
+  img {
+    cursor: pointer;
+    padding: 8px;
+  }
 }
 
 tbody tr:last-child {
@@ -196,5 +204,71 @@ tbody tr:last-child {
   }
   .td-icon-2 {
     border-radius: 0px 0px 0px 8px;
+  }
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 360px;
+  height: 158px;
+  background: $white-color;
+  border-radius: 4px;
+  padding: 16px;
+  font-family: IRANYekan;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 16px;
+    color: $text-color;
+  }
+
+  &-close {
+    cursor: pointer;
+  }
+
+  &-message {
+    text-align: right;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    color: $text-color;
+    margin-bottom: 38px;
+  }
+
+  &-ok {
+    width: 80px;
+    height: 32px;
+    background: $asroon-color;
+    color: $white-color;
+    font-family: IRANYekan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background: #ce2f26;
+    }
   }
 }

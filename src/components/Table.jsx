@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // logo
 import logo from "../assets/images/logo.png";
@@ -8,8 +8,10 @@ import "./Table.scss";
 import plusCircle from "../assets/icons/fi_plus-circle.svg";
 import edit from "../assets/icons/edit.svg";
 import trash from "../assets/icons/trash.svg";
+import close from "../assets/icons/fi_x.svg";
 
 const Table = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="container">
       <img src={logo} alt="Asroon" className="logo" />
@@ -38,7 +40,7 @@ const Table = () => {
           <tbody className="tbody">
             <tr>
               <td className="td-icon-2">
-                <img src={trash} />
+                <img src={trash} onClick={() => setShowModal(true)}/>
               </td>
               <td className="td-icon">
                 <img src={edit} />
@@ -52,6 +54,22 @@ const Table = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-container">
+          <div className="modal">
+            <header className="modal-header">
+              <img src={close} onClick={() => setShowModal(false)} className="modal-close" />
+              حذف ردیف
+            </header>
+            <p className="modal-message">آیا از حذف این ردیف مطمئن هستید؟</p>
+            <footer className="modla-footer">
+              <button onClick={() => setShowModal(false)} className="modal-ok">حذف</button>
+            </footer>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
