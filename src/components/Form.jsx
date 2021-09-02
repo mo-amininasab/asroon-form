@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useReducer, useState, useEffect } from "react";
+
+import { useHistory } from "react-router-dom";
 
 // image
 import logo from "../assets/images/logo.png";
@@ -6,11 +8,99 @@ import logo from "../assets/images/logo.png";
 // style
 import "./Form.scss";
 
+const nameReducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE":
+      return { value: action.payload, isValid: action.payload.length > 3 };
+
+    default:
+      return state;
+  }
+};
+
+const phoneReducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE":
+      return { value: action.payload, isValid: action.payload.length === 11 };
+
+    default:
+      return state;
+  }
+};
+
+const ageReducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE":
+      return {
+        value: action.payload,
+        isValid: action.payload > 0 && action.payload < 120,
+      };
+
+    default:
+      return state;
+  }
+};
+
+const emailReducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE":
+      return {
+        value: action.payload,
+        isValid: action.payload.includes("@"),
+      };
+
+    default:
+      return state;
+  }
+};
+
 const Form = () => {
+  const history = useHistory();
+
+  const [nameState, dispatchName] = useReducer(nameReducer, {
+    value: "",
+    isValid: false,
+  });
+
+  const [phoneState, dispatchPhone] = useReducer(phoneReducer, {
+    value: "",
+    isValid: false,
+  });
+
+  const [ageState, dispatchAge] = useReducer(ageReducer, {
+    value: "",
+    isValid: false,
+  });
+
+  const [emailState, dispatchEmail] = useReducer(emailReducer, {
+    value: "",
+    isValid: false,
+  });
+
+  const [formIsValid, setFormIsValid] = useState(false);
+
+  useEffect(() => {
+    if (
+      nameState.isValid &&
+      phoneState.isValid &&
+      ageState.isValid &&
+      emailState.isValid
+    ) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }, [nameState, phoneState, ageState, emailState]);
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    history.push("/table");
+  };
+
   return (
     <div className="container">
       <img src={logo} alt="Asroon" className="logo" />
-      <form className="form-container">
+      <form className="form-container" onSubmit={formSubmitHandler}>
         <h3 className="form-header">.فرم زیر را پر کنید</h3>
         <div className="text-field-1">
           <span className="label">نام و نام خانوادگی</span>
@@ -18,6 +108,10 @@ const Form = () => {
             type="text"
             placeholder="نام و نام خانوادگی شما"
             className="input"
+            vlaue={nameState.value}
+            onChange={(e) =>
+              dispatchName({ type: "CHANGE", payload: e.target.value })
+            }
           />
         </div>
         <div className="text-field-2">
@@ -26,6 +120,10 @@ const Form = () => {
             type="number"
             placeholder="شماره موبایل"
             className="input"
+            vlaue={phoneState.value}
+            onChange={(e) =>
+              dispatchPhone({ type: "CHANGE", payload: e.target.value })
+            }
           />
         </div>
         <div className="text-field-3">
@@ -34,6 +132,10 @@ const Form = () => {
             type="number"
             placeholder="سن شما"
             className="input"
+            vlaue={ageState.value}
+            onChange={(e) =>
+              dispatchAge({ type: "CHANGE", payload: e.target.value })
+            }
           />
         </div>
         <div className="text-field-4">
@@ -42,9 +144,21 @@ const Form = () => {
             type="text"
             placeholder="ایمیل شما"
             className="input"
+            vlaue={emailState.value}
+            onChange={(e) =>
+              dispatchEmail({ type: "CHANGE", payload: e.target.value })
+            }
           />
         </div>
-        <button className="submit-btn">ساخت اکانت</button>
+        {formIsValid ? (
+          <button to="/table" className="submit-btn">
+            ساخت اکانت
+          </button>
+        ) : (
+          <button className="submit-btn" disabled>
+            ساخت اکانت
+          </button>
+        )}
       </form>
     </div>
   );

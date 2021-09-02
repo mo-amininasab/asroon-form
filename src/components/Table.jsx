@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from 'react-router-dom';
+
 // logo
 import logo from "../assets/images/logo.png";
 
@@ -18,9 +20,9 @@ const Table = () => {
       <div className="group">
         <div className="flex">
           <div className="flex2">
-            <span className="btn-create-account">
+            <Link to="/create-account" className="btn-create-account">
               ساخت اکانت جدید <img src={plusCircle} className="icon-plus" />
-            </span>
+            </Link>
             <span className="btn-server">دریافت اطلاعات از سرور</span>
           </div>
           <span className="group-header">داده ها</span>

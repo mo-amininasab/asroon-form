@@ -252,7 +252,16 @@
   line-height: 16px;
   color: $white-color;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   &:hover {
     background: #ce2f26;
-}
+  }
+
+  &:disabled {
+    background: rgba($text-color, 0.5);
+    cursor: auto;
+  }
 }
