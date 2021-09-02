@@ -4,6 +4,7 @@ import "./App.scss";
 
 // components
 import Form from "./components/Form";
+import Table from "./components/Table";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Redirect to="/create-account" />
         </Route>
         <Route path="/create-account" component={Form} exact />
+        <Route path="/table" component={Table} exact />
       </Switch>
     </div>
   );
