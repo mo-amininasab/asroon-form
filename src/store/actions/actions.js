@@ -1,1 +1,1 @@
-export { addUser } from './usersAction'
+export { addUser, removerUser } from './usersAction'

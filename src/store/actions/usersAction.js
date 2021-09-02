@@ -6,3 +6,10 @@ export const addUser = (formFields) => {
         payload: formFields
     }
 }
+
+export const removerUser = (id) => {
+    return {
+        type: REMOVER_USER,
+        payload: id
+    }
+}

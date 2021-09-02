@@ -3,7 +3,7 @@ import React, { useReducer, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 // redux
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addUser } from '../store/actions/actions'
 
 // image
