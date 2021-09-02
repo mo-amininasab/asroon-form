@@ -2,6 +2,10 @@ import React, { useReducer, useState, useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { addUser } from '../store/actions/actions'
+
 // image
 import logo from "../assets/images/logo.png";
 
@@ -55,6 +59,7 @@ const emailReducer = (state, action) => {
 };
 
 const Form = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const [nameState, dispatchName] = useReducer(nameReducer, {
@@ -95,6 +100,8 @@ const Form = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     history.push("/table");
+    console.log(e);
+    dispatch(addUser(e.target))
   };
 
   return (
@@ -150,15 +157,9 @@ const Form = () => {
             }
           />
         </div>
-        {formIsValid ? (
-          <button to="/table" className="submit-btn">
-            ساخت اکانت
-          </button>
-        ) : (
-          <button className="submit-btn" disabled>
-            ساخت اکانت
-          </button>
-        )}
+        <button to="/table" className="submit-btn" disabled={!formIsValid}>
+          ساخت اکانت
+        </button>
       </form>
     </div>
   );
