@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
@@ -30,6 +30,7 @@ const modalReducer = (state, action) => {
 };
 
 const Table = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [modalState, dispatchModal] = useReducer(modalReducer, {
     showModal: false,
@@ -41,6 +42,10 @@ const Table = () => {
   const deleteUserHandler = () => {
     dispatch(removerUser(modalState.id));
     dispatchModal({ type: "HIDE" });
+  };
+
+  const editHandler = (id) => {
+    history.push(`/edit/${id}`);
   };
 
   return (
@@ -78,7 +83,7 @@ const Table = () => {
                   />
                 </td>
                 <td className="td-icon">
-                  <img src={edit} />
+                  <img src={edit} onClick={() => editHandler(user.id)} />
                 </td>
                 <td className="td-date">{user.createdAt}</td>
                 <td className="td-email">{user.email}</td>

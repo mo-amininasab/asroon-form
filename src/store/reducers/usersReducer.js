@@ -5,7 +5,7 @@ const initialState = {
     {
       id: "Arashdma@gamil.com",
       name: "آرش دامن افشان",
-      phone: "۰۹۳۶۶۱۸۳۴۸۳",
+      phone: "09366183483",
       age: "34",
       email: "Arashdma@gamil.com",
       createdAt: "۹۹/۰۳/۰۲",
@@ -41,6 +41,22 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.filter((user) => user.id !== action.payload),
+      };
+
+    case EDIT_USER:
+      const theUser = state.users.find((user) => user.id === action.id);
+      const filteredUsers = state.users.filter((user) => user.id !== action.id);
+      const editedUesr = {
+        id: action.payload[3].value,
+        name: action.payload[0].value,
+        phone: action.payload[1].value,
+        age: action.payload[2].value,
+        email: action.payload[3].value,
+        createdAt: theUser.createdAt,
+      };
+      return {
+        ...state,
+        users: filteredUsers.concat(editedUesr),
       };
 
     default:

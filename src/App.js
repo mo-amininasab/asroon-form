@@ -5,6 +5,7 @@ import "./App.scss";
 // components
 import Form from "./components/Form";
 import Table from "./components/Table";
+import EditForm from "./components/EditForm";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         </Route>
         <Route path="/create-account" component={Form} exact />
         <Route path="/table" component={Table} exact />
+        <Route path="/edit/:id?" component={EditForm} />
       </Switch>
     </div>
   );
