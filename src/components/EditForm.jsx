@@ -104,7 +104,6 @@ const EditForm = ({ match }) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     history.push("/table");
-    // console.log(e);
     dispatch(editUser(e.target, match.params.id));
   };
 

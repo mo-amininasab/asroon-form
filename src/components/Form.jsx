@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 // redux
 import { useDispatch } from "react-redux";
-import { addUser } from '../store/actions/actions'
+import { addUser } from "../store/actions/actions";
 
 // image
 import logo from "../assets/images/logo.png";
@@ -100,8 +100,7 @@ const Form = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     history.push("/table");
-    console.log(e);
-    dispatch(addUser(e.target))
+    dispatch(addUser(e.target));
   };
 
   return (
